@@ -14,12 +14,29 @@ package example;
  * - toString
  */
 public class Shouter {
+    private String message;
+
+    public Shouter(String message) {
+        this.message = message;
+    }
+
+    public void setMessage(String newMessage) {
+        this.message = newMessage;
+    }
+
+    public String getMessage() {
+        return this.message.toLowerCase();
+    }
+
+    public void scream() {
+        System.out.println(this.getMessage().toUpperCase());
+    }
+
     public static void main(String[] args) {
-        // Shouter s = new Shouter("This is my message");
-        // s.printMe();
-        // s.shout();
-        // When printing objects, Java will try and stringify
-        // In this case, it calls the .toString() method
-        // System.out.println(s);
+        Shouter s = new Shouter("This is my message");
+        System.out.println(s.getMessage());
+        s.setMessage("This is my changed message");
+        System.out.println(s.getMessage());
+        s.scream();
     }
 }

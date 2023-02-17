@@ -9,6 +9,9 @@ package example;
 public class HelloWorld {
     public static void main(String[] args) {
         // TODO Complete this method
-
+        //print(...)
+        // console.log(...)
+        // printf(...)
+        System.out.println("Hello World");
     }
 }

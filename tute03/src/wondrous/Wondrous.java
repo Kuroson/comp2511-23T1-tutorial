@@ -10,10 +10,12 @@ import java.util.List;
 public class Wondrous {
     private final int MY_MAGIC_NUMBER = 42;
 
-    public List<Integer> wondrous(int start) {
+    public List<Integer> wondrous(int start) throws Exception {
         int current = start;
         List<Integer> sequence = new ArrayList<Integer>();
-
+        if (start <= 1) {
+            throw new Exception("Bad input");
+        }
         while (current != 1) {
             sequence.add(current);
             if (current % 2 == 0) {
@@ -22,7 +24,7 @@ public class Wondrous {
                 current = (current * 3) + 1;
             }
         }
-
+        sequence.add(1);
         return sequence;
     }
 

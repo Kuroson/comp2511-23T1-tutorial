@@ -13,7 +13,9 @@ public class Wondrous {
     public List<Integer> wondrous(int start) {
         int current = start;
         List<Integer> sequence = new ArrayList<Integer>();
-
+        if (start < 0) {
+            throw new RuntimeException("Bad input"); // Checked exception
+        }
         while (current != 1) {
             sequence.add(current);
             if (current % 2 == 0) {
@@ -22,8 +24,12 @@ public class Wondrous {
                 current = (current * 3) + 1;
             }
         }
-
+        sequence.add(1);
         return sequence;
+    }
+
+    public void doSomething() throws Exception {
+        this.wondrous(5);
     }
 
 }

@@ -4,16 +4,18 @@ import java.util.List;
 
 import restaurant.Meal;
 
-/**
- * Standard - normal rates
- */
-public class StandardStrategy implements ChargingStrategy {
-
+public class NewYearStrategy implements ChargingStrategy {
+    /**
+     * The cost of a meal.
+     */
     public double cost(List<Meal> order, boolean payeeIsMember) {
-        return order.stream().mapToDouble(meal -> meal.getCost()).sum();
+        return 0;
     }
 
+    /**
+     * Modifying factor of charges for standard customers.
+     */
     public double standardChargeModifier() {
-        return 1;
+        return 0;
     }
 }

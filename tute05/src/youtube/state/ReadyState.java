@@ -7,21 +7,20 @@ public class ReadyState extends ViewingState {
         super(viewing);
     }
 
-    @Override
     public String onLock() {
-        // TODO
-        return "";
+        this.getViewing().changeState(new LockedState(this.getViewing()));
+        return "Locked";
     }
 
     @Override
     public String onPlay() {
-        // TODO
-        return "";
+        String action = this.getViewing().startPlayback();
+        getViewing().changeState(new PlayingState(getViewing()));
+        return action;
     }
 
     @Override
     public String onNext() {
-        // TODO
-        return "";
+        return "Locked.";
     }
 }

@@ -8,7 +8,6 @@ package thrones;
  */
 public abstract class Character {
     private int healthPoints;
-
     private int x, y;
 
     public Character(int x, int y) {

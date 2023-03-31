@@ -13,7 +13,7 @@ package thrones;
  */
 public class Queen extends Character {
 
-    public Queen(int x, int y) {
+    public Queen(int x, int y, int z) {
         super(x, y);
     }
 

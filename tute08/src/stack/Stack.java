@@ -8,14 +8,16 @@ import java.util.List;
 /**
  * A Simple Stack.
  * @param <E>
- * 
  */
 public class Stack<E> implements Iterable<E> {
+    private List<E> list = new ArrayList<>();
+
     /**
      * Pushes an element onto the top of the stack.
      * @param element
      */
     public void push(E element) {
+        this.list.add(element);
     }
 
     /**
@@ -23,42 +25,64 @@ public class Stack<E> implements Iterable<E> {
      * @precondition The stack is not empty.
      */
     public E pop() {
-        return null;
+        E element = this.list.get(this.list.size() - 1);
+        this.list.remove(this.list.size() - 1);
+        return element;
     }
 
     /**
      * Returns the top element of the stack, without removing it.
      */
     public E peek() {
-        return null;
+        return this.list.get(this.list.size() - 1);
     }
 
     /**
      * Returns an iterator to the internal data structure of the stack.
      */
     public Iterator<E> iterator() {
-        return null;
+        List<E> copy = new ArrayList<>(this.list);
+        Collections.reverse(copy);
+        return copy.iterator();
     }
 
     /**
      * Returns the size of the stack.
      */
     public int size() {
-        return 0;
+        return this.list.size();
     }
 
     /**
      * Returns the stack as an ArrayList
      */
     public ArrayList<E> toArrayList() {
-        return null;
+        ArrayList<E> copy = new ArrayList<>(this.list);
+        Collections.reverse(copy);
+        return copy;
     }
 
     public static Integer sumStack(Stack<? extends Integer> stack) {
-        return 0;
+        int sum = 0;
+        for (Integer i : stack) {
+            sum += i;
+        }
+        return sum;
     }
 
     public static void prettyPrint(Stack<?> stack) {
+        for (Object o : stack) {
+            System.out.println(o);
+        }
+
+        for (var o : stack) {
+            System.out.println(o);
+        }
+
+        Iterator<?> it = stack.iterator();
+        while (it.hasNext()) {
+            System.out.println(it.next());
+        }
     }
 
     public static void main(String[] args) {
@@ -69,6 +93,10 @@ public class Stack<E> implements Iterable<E> {
         stack.push("you");
         stack.push("today");
         prettyPrint(stack);
+
+        for (String s : stack) {
+            System.out.println(s);
+        }
     }
 
 }
